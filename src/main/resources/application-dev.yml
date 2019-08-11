@@ -1,0 +1,7 @@
+### Config database
+spring:
+  data:
+    mongodb:
+      host: ${DATABASE_HOST:localhost}
+      port: ${DATABASE_PORT:27017}
+      database: ${DATABASE_NAME:reminder_db}
