@@ -1,7 +1,8 @@
-package io.pyxiscode.reminder.api.service;
+package io.pyxiscode.reminder.api.domain.service.impl;
 
 import io.pyxiscode.reminder.api.domain.model.Event;
 import io.pyxiscode.reminder.api.domain.repository.EventRepository;
+import io.pyxiscode.reminder.api.domain.service.EventService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Optional<Event> findEventById(String id) {
-        return eventRepository.findById(id);
+        Optional<Event> existingEvent = eventRepository.findById(id);
+        return existingEvent.isPresent() ? existingEvent : Optional.empty();
     }
 
     @Override
@@ -57,6 +59,4 @@ public class EventServiceImpl implements EventService {
             log.error("Cannot remove event {} ", id);
         }
     }
-
-
 }

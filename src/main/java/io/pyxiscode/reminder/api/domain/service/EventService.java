@@ -1,4 +1,4 @@
-package io.pyxiscode.reminder.api.service;
+package io.pyxiscode.reminder.api.domain.service;
 
 import io.pyxiscode.reminder.api.domain.model.Event;
 
@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EventService {
-
     void createEvent(Event event);
 
     List<Event> findAllEvents();

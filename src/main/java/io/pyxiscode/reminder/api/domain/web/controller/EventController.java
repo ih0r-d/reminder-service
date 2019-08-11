@@ -1,10 +1,10 @@
-package io.pyxiscode.reminder.api.web.controller;
+package io.pyxiscode.reminder.api.domain.web.controller;
 
 import io.pyxiscode.reminder.api.domain.model.Event;
-import io.pyxiscode.reminder.api.service.EventService;
-import org.bson.types.ObjectId;
+import io.pyxiscode.reminder.api.domain.service.EventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Validated
 public class EventController {
 
     private final EventService eventService;
