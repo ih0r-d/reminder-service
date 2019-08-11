@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    container_name: reminder-service
+    restart: always
+    image: igornumber1/remind-service:0.1
+    environment:
+      MONGO_URL: mongo
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
