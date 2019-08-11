@@ -44,7 +44,7 @@ public class EventServiceImpl implements EventService {
         eventRepository.findById(id)
                 .map(event -> {
                     event.setTitle(e.getTitle());
-                    event.setCompleted(e.getCompleted());
+//                    event.setCompleted(e.getCompleted());
                     eventRepository.save(event);
                     return event;
                 })
