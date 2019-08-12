@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  app:
+    build: .
+    restart: always
+    container_name: reminder-dev
+    ports:
+      - 8182:8080
+    working_dir: /otp/app
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo-dev
+    volumes:
+      - $HOME/data/mongo-dev-data:/data/db
+      - $HOME/data/mongo-dev-bkp:/data/bkp
+    restart: always
