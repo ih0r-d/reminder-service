@@ -5,7 +5,7 @@ services:
     restart: always
     container_name: reminder-dev
     ports:
-      - 8182:8080
+      - 8080:8080
     working_dir: /otp/app
     depends_on:
       - mongo
@@ -13,6 +13,8 @@ services:
   mongo:
     image: mongo
     container_name: mongo-dev
+    ports:
+      - 27017:27017
     volumes:
       - $HOME/data/mongo-dev-data:/data/db
       - $HOME/data/mongo-dev-bkp:/data/bkp
